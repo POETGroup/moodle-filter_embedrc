@@ -31,7 +31,7 @@
  * @param $oldversion Version to be upgraded from.
  * @return bool Success.
  */
-function xmldb_filter_oembed_upgrade($oldversion) {
+function xmldb_filter_embedrc_upgrade($oldversion) {
     global $CFG, $DB, $OUTPUT;
 
     return true;

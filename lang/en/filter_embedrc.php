@@ -25,25 +25,7 @@
  * Soundcloud (Troy Williams)
  */
 
-$string['filtername'] = 'oEmbed Filter';
-$string['youtube'] = 'Youtube';
-$string['vimeo'] = 'Vimeo';
-$string['ted'] = 'Ted Talks';
-$string['slideshare'] = 'SlideShare';
-$string['officemix'] = 'Office Mix';
-$string['issuu'] = 'Issuu';
-$string['soundcloud'] = 'SoundCloud';
-$string['pollev'] = 'Poll Everywhere';
-$string['sway'] = 'Sway';
-$string['once'] = 'Once';
-$string['times'] = '{$a} times';
-$string['retrylimit'] = 'Limit to retry getting filtered content';
-$string['cachedef_embeddata'] = 'Cache for filtered content';
-$string['lazyload'] = 'Delay Embed Loading (Lazyload)';
-$string['connection_error'] = 'Error while accessing the embedded media. Please try refreshing the page.';
-$string['o365video'] = 'Office 365 Video';
-$string['provider_docsdotcom'] = 'Docs.com';
-$string['provider_powerbi'] = 'Power BI';
+$string['filtername'] = 'Embed Remote Content Filter';
 $string['cachelifespan_disabled'] = 'Cache lifespan disabled';
 $string['cachelifespan'] = 'Cache lifespan';
 $string['cachelifespan_desc'] = 'The duration of time before the providers list should be refreshed.';

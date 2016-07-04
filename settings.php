@@ -29,45 +29,42 @@ defined('MOODLE_INTERNAL') || die;
 
 require_once(__DIR__.'/filter.php');
 require_once($CFG->libdir.'/formslib.php');
-
-use filter_embedrc\service\oembed;
+require_once(__DIR__.'/classes/service/admin_setting_choose_provider.php');
 
 if ($ADMIN->fulltree) {
-
     $targettags = [
-        'a'  =>  get_string('atag', 'filter_embedrc'),
-        'div'=>  get_string('divtag', 'filter_embedrc'),
+        'a'  =>  get_string('atag'),
+        'div'=>  get_string('divtag'),
     ];
-
+    
     $cachelifespan =[
         '0' =>  get_string('cachelifespan_disabled', 'filter_embedrc'),
         '1' =>  get_string('cachelifespan_daily', 'filter_embedrc'),
         '2' =>  get_string('cachelifespan_weekly', 'filter_embedrc')
     ];
-
+    
+    $torf = [
+        '1' => get_string('yes'),
+        '0' => get_string('no')
+    ];
+    
     $config = get_config('filter_embedrc');
-
-    $item = new admin_setting_configselect('filter_embedrc/cachelifespan', get_string('cachelifespan', 'filter_embedrc'), get_string('cachelifespan_desc', 'filter_embedrc'),'1', $cachelifespan);
-
-    $item = new admin_setting_configselect('filter_embedrc/targettag', get_string('targettag', 'filter_embedrc'),  get_string('targettag_desc', 'filter_embedrc'), 'atag', ['atag' => 'atag','divtag'=>'divtag']);
+    $item = new admin_setting_configselect('filter_embedrc/cachelifespan', get_string('cachelifespan', 'filter_embedrc'), get_string('cachelifespan_dec', 'filter_embedrc'),'1', $cachelifespan);
     $settings->add($item);
-
-    $oembed = oembed::get_instance();
-    foreach ($oembed->providers as $provider) {
-        $providers_allowed_default[$provider['provider_name']] = $provider['provider_name'];
+    
+    $item = new admin_setting_configselect('filter_embedrc/targettag', get_string('targettag', 'filter_embedrc'),  get_string('targettag_desc', 'filter_embedrc'),'atag', ['atag' => 'atag','divtag'=>'divtag']);
+    $settings->add($item);
+    
+    $item = new admin_setting_configselect('filter_embedrc/providers_restrict', get_string('providers_restrict', 'filter_embedrc'), get_string('providers_restrict_desc', 'filter_embedrc'), 0, $torf);
+    $settings->add($item);
+    
+    $targettag = get_config('filter_embedrc', 'targettag');
+    if ($config->providers_restrict == 1) {
+        $providers = json_decode($config->providers_cached, true);
+        foreach ($providers as $provider) {
+            $providers_allowed_default[$provider['provider_name']] = $provider['provider_name'];
+        }
+        $item = new admin_setting_configmulticheckbox('filter_embedrc/providers_allowed', get_string('providers_allowed', 'filter_embedrc'), get_string('providers_allowed_desc', 'filter_embedrc'), implode(',', array_values($providers_allowed_default)), $providers_allowed_default);
+        $settings->add($item);
     }
-
-    $item = new admin_setting_configcheckbox('filter_embedrc/providers_restrict', get_string('providers_restrict', 'filter_embedrc'), get_string('providers_restrict_desc', 'filter_embedrc'), '0');
-    $settings->add($item);
-
-    $item = new admin_setting_configmulticheckbox('filter_embedrc/providers_allowed', get_string('providers_allowed', 'filter_embedrc'), get_string('providers_allowed_desc', 'filter_embedrc'), implode(',', array_values($providers_allowed_default)), $providers_allowed_default);
-    $settings->add($item);
-
-    $item = new admin_setting_configcheckbox('filter_embedrc/lazyload', new lang_string('lazyload', 'filter_embedrc'), '', 0);
-    $settings->add($item);
-    $retrylist = array('0' => new lang_string('none'), '1' => new lang_string('once', 'filter_embedrc'),
-                                                  '2' => new lang_string('times', 'filter_embedrc', '2'),
-                                                  '3' => new lang_string('times', 'filter_embedrc', '3'));
-    $item = new admin_setting_configselect('filter_embedrc/retrylimit', new lang_string('retrylimit', 'filter_embedrc'), '', '1', $retrylist);
-    $settings->add($item);
 }

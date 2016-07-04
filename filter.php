@@ -39,30 +39,6 @@ require_once($CFG->libdir.'/filelib.php');
 class filter_embedrc extends moodle_text_filter {
 
     /**
-     * Set up the filter using settings provided in the admin settings page.
-     *
-     * @param $page
-     * @param $context
-     */
-    public function setup($page, $context) {
-        // This only requires execution once per request.
-        static $jsinitialised = false;
-        if (get_config('filter_embedrc', 'lazyload')) {
-            if (empty($jsinitialised)) {
-                $page->requires->yui_module(
-                        'moodle-filter_embedrc-lazyload',
-                        'M.filter_embedrc.init_filter_lazyload',
-                        array(array('courseid' => 0)));
-                $jsinitialised = true;
-            }
-        }
-        if (get_config('filter_embedrc', 'provider_powerbi_enabled')) {
-            global $PAGE;
-            $PAGE->requires->yui_module('moodle-filter_embedrc-powerbiloader', 'M.filter_embedrc.init_powerbiloader');
-        }
-    }
-
-    /**
      * Filters the given HTML text, looking for links pointing to media from services that support the Oembed
      * protocol and replacing them with the embeddable content returned from the protocol.
      *

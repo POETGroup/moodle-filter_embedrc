@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a811a122-040b-4688-af67-b0955ac77550" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Development/moodle-filter_embedRC/.idea/vcs.xml" />
-    </list>
+    <list default="true" id="a811a122-040b-4688-af67-b0955ac77550" name="Default" comment="" />
     <ignored path="moodle-filter_oembed.iws" />
     <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,17 +23,37 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="filter.php" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Development/moodle-filter_embedrc/filter.php">
+        <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/filter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.27907">
-              <caret line="96" column="38" selection-start-line="96" selection-start-column="38" selection-end-line="96" selection-end-column="38" />
+            <state vertical-scroll-proportion="-5.6511626">
+              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="filter_embedrc.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/lang/en/filter_embedrc.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.333333">
+              <caret line="27" column="54" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="filter_embedrc.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/lang/de/filter_embedrc.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.0">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="LICENSE" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Development/moodle-filter_embedrc/LICENSE">
+        <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/LICENSE">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -44,29 +63,59 @@
         </entry>
       </file>
       <file leaf-file-name="settings.php" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Development/moodle-filter_embedrc/settings.php">
+        <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/settings.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.9069767">
-              <caret line="70" column="117" selection-start-line="70" selection-start-column="117" selection-end-line="70" selection-end-column="117" />
+            <state vertical-scroll-proportion="-0.5813953">
+              <caret line="31" column="75" selection-start-line="31" selection-start-column="75" selection-end-line="31" selection-end-column="75" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="version.php" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Development/moodle-filter_embedrc/version.php">
+      <file leaf-file-name="README.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/README.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.7674417">
-              <caret line="31" column="36" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="install.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/db/install.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.0">
+              <caret line="25" column="3" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="upgrade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/db/upgrade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.333333">
+              <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="caches.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/db/caches.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.0">
+              <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="oembed.php" pinned="false" current-in-tab="true">
-        <entry file="file://$USER_HOME$/Development/moodle-filter_embedrc/classes/service/oembed.php">
+        <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/classes/service/oembed.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="6.2850356">
+            <state vertical-scroll-proportion="0.019977802">
               <caret line="307" column="78" selection-start-line="307" selection-start-column="78" selection-end-line="307" selection-end-column="78" />
               <folding />
             </state>
@@ -76,15 +125,21 @@
     </leaf>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$USER_HOME$/Development/moodle-filter_embedRC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$USER_HOME$/Development/moodle-filter_embedRC/filter.php" />
-        <option value="$USER_HOME$/Development/moodle-filter_embedrc/settings.php" />
-        <option value="$USER_HOME$/Development/moodle-filter_embedrc/version.php" />
-        <option value="$USER_HOME$/Development/moodle-filter_embedrc/classes/service/oembed.php" />
+        <option value="$PROJECT_DIR$/filter.php" />
+        <option value="$PROJECT_DIR$/../moodle-filter_embedrc/version.php" />
+        <option value="$PROJECT_DIR$/../moodle-filter_embedrc/classes/service/oembed.php" />
+        <option value="$PROJECT_DIR$/../moodle-filter_embedrc/db/install.php" />
+        <option value="$PROJECT_DIR$/../moodle-filter_embedrc/db/upgrade.php" />
+        <option value="$PROJECT_DIR$/../moodle-filter_embedrc/db/caches.php" />
+        <option value="$PROJECT_DIR$/../moodle-filter_embedrc/settings.php" />
+        <option value="$PROJECT_DIR$/../moodle-filter_embedrc/filter.php" />
+        <option value="$PROJECT_DIR$/../moodle-filter_embedrc/lang/en/filter_embedrc.php" />
+        <option value="$PROJECT_DIR$/../moodle-filter_embedrc/lang/de/filter_embedrc.php" />
       </list>
     </option>
   </component>
@@ -129,6 +184,12 @@
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="moodle-filter_oembed" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="moodle-filter_oembed" />
@@ -212,7 +273,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/Development/moodle-filter_embedRC" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunManager">
@@ -281,7 +342,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Development/moodle-filter_embedrc/filter.php">
+    <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/filter.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -289,31 +350,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Development/moodle-filter_embedrc/filter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.27907">
-          <caret line="96" column="38" selection-start-line="96" selection-start-column="38" selection-end-line="96" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Development/moodle-filter_embedrc/LICENSE">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Development/moodle-filter_embedrc/settings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.9069767">
-          <caret line="70" column="117" selection-start-line="70" selection-start-column="117" selection-end-line="70" selection-end-column="117" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Development/moodle-filter_embedrc/version.php">
+    <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/version.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.7674417">
           <caret line="31" column="36" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
@@ -321,9 +358,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Development/moodle-filter_embedrc/classes/service/oembed.php">
+    <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/settings.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="6.2850356">
+        <state vertical-scroll-proportion="-0.5813953">
+          <caret line="31" column="75" selection-start-line="31" selection-start-column="75" selection-end-line="31" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/README.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/LICENSE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/filter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.6511626">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/lang/en/filter_embedrc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.333333">
+          <caret line="27" column="54" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/lang/de/filter_embedrc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.0">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/db/upgrade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.333333">
+          <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/db/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.0">
+          <caret line="25" column="3" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/db/caches.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.0">
+          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../moodle-filter_embedrc/classes/service/oembed.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.019977802">
           <caret line="307" column="78" selection-start-line="307" selection-start-column="78" selection-end-line="307" selection-end-column="78" />
           <folding />
         </state>

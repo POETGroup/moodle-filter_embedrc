@@ -26,11 +26,11 @@
  */
 
 /**
- * Installs the OEmbed filter.
+ * Installs the embed Remote Content filter.
  */
-function xmldb_filter_oembed_install() {
+function xmldb_filter_embedrc_install() {
     global $CFG;
 
-    filter_set_global_state('filter/oembed', TEXTFILTER_ON);
+    filter_set_global_state('filter/embedrc', TEXTFILTER_ON);
 }
 
