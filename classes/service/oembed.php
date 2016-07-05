@@ -15,13 +15,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Atto text editor integration version file.
+ * Filter for component 'filter_embedrc'
  *
- * @package    atto_oembed
- * @copyright  Erich M. Wappis / Guy Thomas
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   filter_embedrc
+ * @copyright Erich M. Wappis / Guy Thomas 2016
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * code based on the following filter
+ * oEmbed filter ( Mike Churchward, James McQuillan, Vinayak (Vin) Bhalerao, Josh Gavant and Rob Dolin)
  */
-
 namespace filter_embedrc\service;
 
 defined('MOODLE_INTERNAL') || die();

@@ -6,6 +6,9 @@ The filter is using oEmbed for grabbing the external content. The list of suppor
 http://oembed.com/#section7.
 
 The list can be refreshed at a user defined interval.
+As new providers are added to this list, the plugin will automatically support them without having to be upgraded.
+
+Support for custom providers is planned.
 
 
 ##Installation:
@@ -19,7 +22,9 @@ clone the git repository to moodle/filter/embedrc.
 Login as an admin on the Moodle site and install the filter.
 
 ##To use:
-By default the embedrc filter is enabled for all content.  You can change this under Plugins > Filters.
+By default the embedrc filter is disabled. You can turn it on under Plugins > Filters.
+
+All supported providers are enabled per default. Restrictions can be enabled in the filter settings.
 
 The filter can work in two ways:
 

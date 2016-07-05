@@ -18,11 +18,10 @@
  * Filter for component 'filter_embedrc'
  *
  * @package   filter_embedrc
- * @copyright 2012 Matthew Cannings; modified 2015 by Microsoft, Inc.
+ * @copyright Erich M. Wappis / Guy Thomas 2016
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * code based on the following filters...
- * Screencast (Mark Schall)
- * Soundcloud (Troy Williams)
+ * code based on the following filter
+ * oEmbed filter ( Mike Churchward, James McQuillan, Vinayak (Vin) Bhalerao, Josh Gavant and Rob Dolin)
  */
 
 defined('MOODLE_INTERNAL') || die();
@@ -31,27 +30,22 @@ use filter_embedrc\service\oembed;
 
 require_once($CFG->libdir.'/filelib.php');
 /**
- * Filter for processing HTML content containing links to media from services that support the OEmbed protocol.
- * The filter replaces the links with the embeddable content returned from the service via the Oembed protocol.
+ * This text filter allows the user to embed content from many external contents providers.
+ * The filter is using oEmbed for grabbing the external content.
  *
  * @package    filter_embedrc
  */
 class filter_embedrc extends moodle_text_filter {
 
     /**
-     * Filters the given HTML text, looking for links pointing to media from services that support the Oembed
-     * protocol and replacing them with the embeddable content returned from the protocol.
+     * content gets filtered, links either wrapped in an <a> tag or in a <div> tag with class="oembed"
+     * will be replaced by embeded content
      *
      * @param $text HTML to be processed.
      * @param $options
      * @return string String containing processed HTML.
      */
     public function filter($text, array $options = array()) {
-
-        if (!is_string($text) || empty($text)) {
-            // Non string data can not be filtered anyway.
-            return $text;
-        }
 
         $targettag = get_config('filter_embedrc', 'targettag');
 
@@ -61,30 +55,29 @@ class filter_embedrc extends moodle_text_filter {
             return $text;
         }
 
-        $newtext = $text; // We need to return the original value if regex fails!
+        $filtered = $text; // We need to return the original value if regex fails!
         if (get_config('filter_embedrc', 'targettag') == 'divtag') {
             $search = '/(?<=(<div class="oembed">))(.*)(?=<\/div>)/';
-            $newtext = preg_replace_callback($search, function ($match) {
+            $filtered = preg_replace_callback($search, function ($match) {
                 $instance = oembed::get_instance();
                 return $instance->html_output($match[0]);
-            }, $newtext);
+            }, $filtered);
         }
 
         if (get_config('filter_embedrc', 'targettag') == 'atag') {
             $search = '/<a\s[^>]*href="(.*)"(.*?)>(.*?)<\/a>/';
-            $newtext = preg_replace_callback($search, function ($match) {
+            $filtered = preg_replace_callback($search, function ($match) {
                 $instance = oembed::get_instance();
                 return $instance->html_output($match[1]);
 
-            }, $newtext);
+            }, $filtered);
         }
 
-        if (empty($newtext) || $newtext === $text) {
-            // Error or not filtered.
-            unset($newtext);
+        if (empty($filtered)) {
+            // if $filtered is emtpy return original $text           
             return $text;
         }
 
-        return $newtext;
+        return $filtered;
     }
 }
