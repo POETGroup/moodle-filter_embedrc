@@ -18,11 +18,10 @@
  * Filter for component 'filter_embedrc'
  *
  * @package   filter_embedrc
- * @copyright 2012 Matthew Cannings, Sandwell College; modified 2015 by Microsoft, Inc.
+ * @copyright Erich M. Wappis / Guy Thomas 2016
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * code based on the following filters...
- * Screencast (Mark Schall)
- * Soundcloud (Troy Williams)
+ * code based on the following filter
+ * oEmbed filter ( Mike Churchward, James McQuillan, Vinayak (Vin) Bhalerao, Josh Gavant and Rob Dolin)
  */
 
 defined('MOODLE_INTERNAL') || die();
