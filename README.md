@@ -6,6 +6,7 @@ The filter is using oEmbed for grabbing the external content. The list of suppor
 http://oembed.com/#section7.
 
 The list can be refreshed at a user defined interval.
+As new providers are added to this list, the plugin will automatically support them without having to be upgraded.
 
 Support for custom providers is planned.
 
