@@ -42,11 +42,7 @@ if ($ADMIN->fulltree) {
         '2' =>  get_string('cachelifespan_weekly', 'filter_embedrc')
     ];
     
-    $torf = [
-        '1' => get_string('yes'),
-        '0' => get_string('no')
-    ];
-    
+
     $config = get_config('filter_embedrc');
     $item = new admin_setting_configselect('filter_embedrc/cachelifespan', get_string('cachelifespan', 'filter_embedrc'), get_string('cachelifespan_dec', 'filter_embedrc'),'1', $cachelifespan);
     $settings->add($item);
@@ -54,7 +50,7 @@ if ($ADMIN->fulltree) {
     $item = new admin_setting_configselect('filter_embedrc/targettag', get_string('targettag', 'filter_embedrc'),  get_string('targettag_desc', 'filter_embedrc'),'atag', ['atag' => 'atag','divtag'=>'divtag']);
     $settings->add($item);
     
-    $item = new admin_setting_configselect('filter_embedrc/providers_restrict', get_string('providers_restrict', 'filter_embedrc'), get_string('providers_restrict_desc', 'filter_embedrc'), 0, $torf);
+    $item = new admin_setting_checkbox('filter_embedrc/providers_restrict', get_string('providers_restrict', 'filter_embedrc'), get_string('providers_restrict_desc', 'filter_embedrc'), 0);
     $settings->add($item);
     
     $targettag = get_config('filter_embedrc', 'targettag');
