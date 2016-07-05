@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a811a122-040b-4688-af67-b0955ac77550" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README.txt" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/service_embedrc_test.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="moodle-filter_oembed.iws" />
@@ -75,12 +75,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="version.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="version.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/version.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35960045">
+            <state vertical-scroll-proportion="-12.0">
               <caret line="31" column="36" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="service_embedrc_test.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/service_embedrc_test.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.50831354">
+              <caret line="55" column="103" selection-start-line="55" selection-start-column="89" selection-end-line="55" selection-end-column="103" />
+              <folding>
+                <element signature="e#6#57#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -113,6 +125,7 @@
         <option value="$PROJECT_DIR$/lang/en/filter_embedrc.php" />
         <option value="$PROJECT_DIR$/lang/de/filter_embedrc.php" />
         <option value="$PROJECT_DIR$/classes/service/oembed.php" />
+        <option value="$PROJECT_DIR$/tests/service_embedrc_test.php" />
       </list>
     </option>
   </component>
@@ -170,6 +183,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="moodle-filter_embedrc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="moodle-filter_oembed" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="moodle-filter_embedrc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -279,7 +306,13 @@
       <option name="project" value="LOCAL" />
       <updated>1467717847465</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Issue #1 Readme.txt deleted">
+      <created>1467717962978</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1467717962978</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -311,7 +344,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Issue #1 folder db deleted" />
-    <option name="LAST_COMMIT_MESSAGE" value="Issue #1 folder db deleted" />
+    <MESSAGE value="Issue #1 Readme.txt deleted" />
+    <option name="LAST_COMMIT_MESSAGE" value="Issue #1 Readme.txt deleted" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -432,9 +466,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/version.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35960045">
+        <state vertical-scroll-proportion="-12.0">
           <caret line="31" column="36" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/service_embedrc_test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50831354">
+          <caret line="55" column="103" selection-start-line="55" selection-start-column="89" selection-end-line="55" selection-end-column="103" />
+          <folding>
+            <element signature="e#6#57#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
