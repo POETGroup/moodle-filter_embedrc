@@ -152,16 +152,19 @@ class oembed {
         $this->providers = $providers;
 
         if (!empty($config->providers_restrict)) {
-            // We want to restrict the providers that are used
-            $whitelist=explode(',',$config->providers_allowed);
-            $wlist = array();
-            $wlist = array_filter($providers, function ($val) use ($whitelist) {
-                if (in_array($val['provider_name'], $whitelist)) {
-                    return true;
-                }
-            });
-            set_config('providers_whitelisted', $wlist, 'filter_embedrc');
-            $this->providers_whitelisted = $wlist;
+            if (!empty($config->providers_allowed)) {
+                // We want to restrict the providers that are used
+                $whitelist = explode(',', $config->providers_allowed);
+                $wlist = array_filter($providers, function ($val) use ($whitelist) {
+                    if (in_array($val['provider_name'], $whitelist)) {
+                        return true;
+                    }
+                });
+                set_config('providers_whitelisted', $wlist, 'filter_embedrc');
+                $this->providers_whitelisted = $wlist;
+            } else {
+                $this->providers_whitelisted = [];
+            }
         }
     }
 
@@ -194,7 +197,6 @@ class oembed {
         if (empty($providers)) {
             throw new \moodle_exception('error:noproviders', 'filter_embedrc', '');
         }
-
 
         // Cache provider json.
         $this->cache_provider_json($ret);

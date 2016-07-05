@@ -29,10 +29,12 @@ defined('MOODLE_INTERNAL') || die;
 require_once(__DIR__.'/filter.php');
 require_once($CFG->libdir.'/formslib.php');
 
+use filter_embedrc\service\oembed;
+
 if ($ADMIN->fulltree) {
     $targettags = [
-        'a'  =>  get_string('atag'),
-        'div'=>  get_string('divtag'),
+        'a'  =>  get_string('atag', 'filter_embedrc'),
+        'div'=>  get_string('divtag', 'filter_embedrc')
     ];
     
     $cachelifespan =[
@@ -43,17 +45,18 @@ if ($ADMIN->fulltree) {
     
 
     $config = get_config('filter_embedrc');
-    $item = new admin_setting_configselect('filter_embedrc/cachelifespan', get_string('cachelifespan', 'filter_embedrc'), get_string('cachelifespan_dec', 'filter_embedrc'),'1', $cachelifespan);
+    $item = new admin_setting_configselect('filter_embedrc/cachelifespan', get_string('cachelifespan', 'filter_embedrc'), get_string('cachelifespan_desc', 'filter_embedrc'),'1', $cachelifespan);
     $settings->add($item);
     
     $item = new admin_setting_configselect('filter_embedrc/targettag', get_string('targettag', 'filter_embedrc'),  get_string('targettag_desc', 'filter_embedrc'),'atag', ['atag' => 'atag','divtag'=>'divtag']);
     $settings->add($item);
     
-    $item = new admin_setting_checkbox('filter_embedrc/providers_restrict', get_string('providers_restrict', 'filter_embedrc'), get_string('providers_restrict_desc', 'filter_embedrc'), 0);
+    $item = new admin_setting_configcheckbox('filter_embedrc/providers_restrict', get_string('providers_restrict', 'filter_embedrc'), get_string('providers_restrict_desc', 'filter_embedrc'), 0);
     $settings->add($item);
     
     $targettag = get_config('filter_embedrc', 'targettag');
-    if ($config->providers_restrict == 1) {
+    if (!empty($config->providers_restrict)) {
+        oembed::get_instance(); // We have to call this to cache the providers.
         $providers = json_decode($config->providers_cached, true);
         foreach ($providers as $provider) {
             $providers_allowed_default[$provider['provider_name']] = $provider['provider_name'];
