@@ -34,9 +34,9 @@ $string['atag'] = 'Filter on &lt; a &gt; tags';
 $string['divtag'] = 'Filter on &lt; div &gt; tags';
 $string['targettag'] = 'Target tag';
 $string['targettag_desc'] = 'What tag type should be filtered - anchors or divs with the oembed class.';
-$string['providers_restrict'] = 'Restrict providers';
-$string['providers_restrict_desc'] = 'Restrict providers to a list of allowed providers';
-$string['providers_allowed'] = 'Providers allowed.';
-$string['providers_allowed_desc'] = 'Providers whitelisted to be used with this plugin';
+$string['providersrestrict'] = 'Restrict providers';
+$string['providersrestrict_desc'] = 'Restrict providers to a list of allowed providers';
+$string['providersallowed'] = 'Providers allowed.';
+$string['providersallowed_desc'] = 'Providers whitelisted to be used with this plugin';
 $string['connection_error'] = 'Error connecting to external provider, please try reloading the page.';
 

@@ -52,24 +52,24 @@ class testable_oembed extends oembed {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class filter_embedrc_service_oembed_testcase extends advanced_testcase {
-    function test_instance_not_logged_in() {
+    public function test_instance_not_logged_in() {
         $this->setExpectedException('moodle_exception', get_string('error:notloggedin', 'filter_embedrc'));
         testable_oembed::get_instance();
     }
-    function test_instance_logged_in() {
+    public function test_instance_logged_in() {
         $this->resetAfterTest(true);
         $this->setAdminUser();
         $oembed = testable_oembed::get_instance();
         $this->assertNotEmpty($oembed);
     }
-    function assert_providers_ok($providers) {
+    public function assert_providers_ok($providers) {
         $this->assertNotEmpty($providers);
         $provider = reset($providers);
         $this->assertNotEmpty($provider['provider_name']);
         $this->assertNotEmpty($provider['provider_url']);
         $this->assertNotEmpty($provider['endpoints']);
     }
-    function test_sites() {
+    public function test_sites() {
         $this->resetAfterTest(true);
         $this->setAdminUser();
         $oembed = testable_oembed::get_instance();
@@ -80,26 +80,28 @@ class filter_embedrc_service_oembed_testcase extends advanced_testcase {
         $this->assertNotEmpty($site['regex']);
         $this->assertNotEmpty($site['endpoint']);
     }
-    function test_providers() {
+    public function test_providers() {
         $this->resetAfterTest(true);
         $this->setAdminUser();
         $oembed = testable_oembed::get_instance();
         $providers = $oembed->get_providers();
         $this->assert_providers_ok($providers);
     }
-    function test_get_cached_providers() {
+    public function test_get_cached_providers() {
         $this->resetAfterTest(true);
         $this->setAdminUser();
         $oembed = testable_oembed::get_instance();
         $providers = $oembed->protected_get_cached_providers();
         $this->assert_providers_ok($providers);
     }
-    function test_html() {
+    public function test_html() {
         $this->resetAfterTest(true);
         $this->setAdminUser();
         $oembed = testable_oembed::get_instance();
         $text = $oembed->html_output('https://www.youtube.com/watch?v=Dsws8T9_cEE');
-        $expectedtext = '<iframe width="480" height="270" src="https://www.youtube.com/embed/Dsws8T9_cEE?feature=oembed" frameborder="0" allowfullscreen></iframe>';
+        $expectedtext = '<iframe width="480" height="270"' .
+            ' src="https://www.youtube.com/embed/Dsws8T9_cEE?feature=oembed"' .
+            ' frameborder="0" allowfullscreen></iframe>';
         $this->assertEquals($expectedtext, $text);
     }
 }

@@ -93,11 +93,11 @@ class oembed {
 
         // If config is present and cache fresh and available then use it.
         if (!empty($config)) {
-            if (!empty($config->providers_cachestamp) && !empty($config->providers_cached)) {
-                $lastcached = intval($config->providers_cachestamp);
+            if (!empty($config->providerscachestamp) && !empty($config->providerscached)) {
+                $lastcached = intval($config->providerscachestamp);
                 if ($ignorelifespan || $lastcached > time() - $cachelifespan) {
                     // Use cached providers.
-                    $providers = json_decode($config->providers_cached, true);
+                    $providers = json_decode($config->providerscached, true);
                     return $providers;
                 }
             }
@@ -111,8 +111,8 @@ class oembed {
      * @param string $json
      */
     protected function cache_provider_json($json) {
-        set_config('providers_cached', $json, 'filter_embedrc');
-        set_config('providers_cachestamp', time(), 'filter_embedrc');
+        set_config('providerscached', $json, 'filter_embedrc');
+        set_config('providerscachestamp', time(), 'filter_embedrc');
     }
 
     /**
@@ -140,19 +140,19 @@ class oembed {
 
         $this->providers = $providers;
 
-        if (!empty($config->providers_restrict)) {
-            if (!empty($config->providers_allowed)) {
+        if (!empty($config->providersrestrict)) {
+            if (!empty($config->providersallowed)) {
                 // We want to restrict the providers that are used.
-                $whitelist = explode(',', $config->providers_allowed);
+                $whitelist = explode(',', $config->providersallowed);
                 $wlist = array_filter($providers, function ($val) use ($whitelist) {
                     if (in_array($val['provider_name'], $whitelist)) {
                         return true;
                     }
                 });
-                set_config('providers_whitelisted', $wlist, 'filter_embedrc');
-                $this->providers_whitelisted = $wlist;
+                set_config('providerswhitelisted', $wlist, 'filter_embedrc');
+                $this->providerswhitelisted = $wlist;
             } else {
-                $this->providers_whitelisted = [];
+                $this->providerswhitelisted = [];
             }
         }
     }
@@ -189,7 +189,7 @@ class oembed {
 
         // Cache provider json.
         $this->cache_provider_json($ret);
-    
+
         return $providers;
     }
 
@@ -203,10 +203,9 @@ class oembed {
         $sites = [];
         $config = get_config('filter_embedrc');
 
-        if (!empty($config->providers_restrict)) {
-            $providerlist = $this->providers_whitelisted;
-        }
-        else {
+        if (!empty($config->providersrestrict)) {
+            $providerlist = $this->providerswhitelisted;
+        } else {
             $providerlist = $this->providers;
         }
 
@@ -219,10 +218,9 @@ class oembed {
 
             // Check if schemes are definded for this provider.
             // If not take the provider url for creating a regex.
-            if (array_key_exists('schemes', $endpointsarr)){
+            if (array_key_exists('schemes', $endpointsarr)) {
                 $regexschemes = $endpointsarr['schemes'];
-            }
-            else {
+            } else {
                 $regexschemes = array($providerurl);
             }
 
@@ -248,15 +246,17 @@ class oembed {
 
             $url1 = preg_split('/(https?:\/\/)/', $scheme);
             $url2 = preg_split('/\//', $url1[1]);
-            unset($regexarray);
+
+            $regexarr = [];
+
             foreach ($url2 as $url) {
                 $find = ['.', '*'];
-                $replace =['\.','.*?'];
+                $replace = ['\.', '.*?'];
                 $url = str_replace($find, $replace, $url);
-                $regexarray[] = '('.$url.')';
+                $regexarr[] = '('.$url.')';
             }
 
-            $regex[] = '/(https?:\/\/)'.implode('\/', $regexarray).'/';
+            $regex[] = '/(https?:\/\/)'.implode('\/', $regexarr).'/';
         }
         return $regex;
     }
@@ -302,8 +302,8 @@ class oembed {
 
         $embed = $jsonarr['html'];
 
-        if ($params != ''){
-            $embed = str_replace('?feature=oembed', '?feature=oembed'.htmlspecialchars($params), $embed );
+        if ($params != '') {
+            $embed = str_replace('?feature=oembed', '?feature=oembed'.htmlspecialchars($params), $embed);
         }
 
         $embedcode = $embed;
