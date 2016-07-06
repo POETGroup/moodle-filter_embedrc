@@ -72,7 +72,7 @@ class filter_embedrc extends moodle_text_filter {
                 if (empty($result)) {
                     $result = $match[0];
                 }
-                return $result
+                return $result;
 
             }, $filtered);
         }
