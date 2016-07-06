@@ -33,21 +33,21 @@ use filter_embedrc\service\oembed;
 
 if ($ADMIN->fulltree) {
     $targettags = [
-        'a'  =>  get_string('atag', 'filter_embedrc'),
-        'div'=>  get_string('divtag', 'filter_embedrc')
+        'a' => get_string('atag', 'filter_embedrc'),
+        'div' => get_string('divtag', 'filter_embedrc')
     ];
-    
-    $cachelifespan =[
-        '0' =>  get_string('cachelifespan_disabled', 'filter_embedrc'),
-        '1' =>  get_string('cachelifespan_daily', 'filter_embedrc'),
-        '2' =>  get_string('cachelifespan_weekly', 'filter_embedrc')
+
+    $cachelifespan = [
+        '0' => get_string('cachelifespan_disabled', 'filter_embedrc'),
+        '1' => get_string('cachelifespan_daily', 'filter_embedrc'),
+        '2' => get_string('cachelifespan_weekly', 'filter_embedrc')
     ];
-    
+
 
     $config = get_config('filter_embedrc');
     $item = new admin_setting_configselect('filter_embedrc/cachelifespan', get_string('cachelifespan', 'filter_embedrc'), get_string('cachelifespan_desc', 'filter_embedrc'),'1', $cachelifespan);
     $settings->add($item);
-    
+
     $item = new admin_setting_configselect('filter_embedrc/targettag', get_string('targettag', 'filter_embedrc'),  get_string('targettag_desc', 'filter_embedrc'),'atag', ['atag' => 'atag','divtag'=>'divtag']);
     $settings->add($item);
     
@@ -59,9 +59,9 @@ if ($ADMIN->fulltree) {
         oembed::get_instance(); // We have to call this to cache the providers.
         $providers = json_decode($config->providers_cached, true);
         foreach ($providers as $provider) {
-            $providers_allowed_default[$provider['provider_name']] = $provider['provider_name'];
+            $providersalloweddefault[$provider['provider_name']] = $provider['provider_name'];
         }
-        $item = new admin_setting_configmulticheckbox('filter_embedrc/providers_allowed', get_string('providers_allowed', 'filter_embedrc'), get_string('providers_allowed_desc', 'filter_embedrc'), implode(',', array_values($providers_allowed_default)), $providers_allowed_default);
+        $item = new admin_setting_configmulticheckbox('filter_embedrc/providers_allowed', get_string('providers_allowed', 'filter_embedrc'), get_string('providers_allowed_desc', 'filter_embedrc'), implode(',', array_values($providersalloweddefault)), $providersalloweddefault);
         $settings->add($item);
     }
 }

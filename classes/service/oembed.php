@@ -91,7 +91,7 @@ class oembed {
             throw new \coding_exception('Unknown cachelifespan setting!', $config->cachelifespan);
         }
 
-        // If config is present and cache fresh and available then use it
+        // If config is present and cache fresh and available then use it.
         if (!empty($config)) {
             if (!empty($config->providers_cachestamp) && !empty($config->providers_cached)) {
                 $lastcached = intval($config->providers_cachestamp);
@@ -142,7 +142,7 @@ class oembed {
 
         if (!empty($config->providers_restrict)) {
             if (!empty($config->providers_allowed)) {
-                // We want to restrict the providers that are used
+                // We want to restrict the providers that are used.
                 $whitelist = explode(',', $config->providers_allowed);
                 $wlist = array_filter($providers, function ($val) use ($whitelist) {
                     if (in_array($val['provider_name'], $whitelist)) {
@@ -164,11 +164,11 @@ class oembed {
      * @return space array
      */
     protected function download_providers() {
-        $www ='http://oembed.com/providers.json';
+        $www = 'http://oembed.com/providers.json';
 
-        $timeout = 15;   
+        $timeout = 15;
 
-        $ret = download_file_content($www, null, null, true, $timeout, 20, false, NULL, false);
+        $ret = download_file_content($www, null, null, true, $timeout, 20, false, null, false);
 
         if ($ret->status == '200') {
             $ret = $ret->results;
@@ -176,7 +176,7 @@ class oembed {
             $this->warnings[] = 'Failed to load providers from '.$www;
             return false;
         }
-        
+
         $providers = json_decode($ret, true);
 
         if (!is_array($providers)) {
@@ -189,10 +189,10 @@ class oembed {
 
         // Cache provider json.
         $this->cache_provider_json($ret);
-              
+    
         return $providers;
     }
-    
+
     /**
      * Check if the provided url matches any supported content providers
      *
@@ -204,13 +204,13 @@ class oembed {
         $config = get_config('filter_embedrc');
 
         if (!empty($config->providers_restrict)) {
-            $provider_list = $this->providers_whitelisted;
+            $providerlist = $this->providers_whitelisted;
         }
         else {
-            $provider_list = $this->providers;
+            $providerlist = $this->providers;
         }
 
-        foreach ($provider_list as $provider) {
+        foreach ($providerlist as $provider) {
             $providerurl = $provider['provider_url'];
             $endpoints = $provider['endpoints'];
             $endpointsarr = $endpoints[0];
@@ -242,21 +242,21 @@ class oembed {
      *
      * @param array $schemes
      */
-    protected function create_regex_from_scheme(array $schemes){
+    protected function create_regex_from_scheme(array $schemes) {
 
         foreach ($schemes as $scheme) {
 
             $url1 = preg_split('/(https?:\/\/)/', $scheme);
             $url2 = preg_split('/\//', $url1[1]);
-            unset($regex_array);
+            unset($regexarray);
             foreach ($url2 as $url) {
-                $find = ['.','*'];
+                $find = ['.', '*'];
                 $replace =['\.','.*?'];
                 $url = str_replace($find, $replace, $url);
-                $regex_array[] = '('.$url.')';
+                $regexarray[] = '('.$url.')';
             }
 
-            $regex[] = '/(https?:\/\/)'.implode('\/', $regex_array).'/';
+            $regex[] = '/(https?:\/\/)'.implode('\/', $regexarray).'/';
         }
         return $regex;
     }
@@ -268,9 +268,9 @@ class oembed {
      * @return array
      */
     protected function oembed_curlcall($www) {
-        
-        $ret = download_file_content($www, null, null, true, 300, 20, false, NULL, false);
-        
+
+        $ret = download_file_content($www, null, null, true, 300, 20, false, null, false);
+
         $this->providerurl = $www;
         $this->providerjson = $ret->results;
         $result = json_decode($ret->results, true);
@@ -296,7 +296,6 @@ class oembed {
     protected function oembed_gethtml($jsonarr, $params = '') {
 
         if ($jsonarr === null) {
-            //return '<h3>'. get_string('connection_error', 'filter_embedrc') .'</h3>';
             $this->warnings[] = get_string('connection_error', 'filter_embedrc');
             return '';
         }
@@ -317,7 +316,7 @@ class oembed {
      * @param string $text
      * @return string
      */
-    public function html_output($text){
+    public function html_output($text) {
         $url2 = '&format=json';
         foreach ($this->sites as $site) {
             foreach ($site['regex'] as $regex) {

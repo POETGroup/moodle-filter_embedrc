@@ -78,7 +78,7 @@ class filter_embedrc extends moodle_text_filter {
         }
 
         if (empty($filtered)) {
-            // if $filtered is emtpy return original $text           
+            // If $filtered is emtpy return original $text.
             return $text;
         }
 
