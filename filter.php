@@ -68,7 +68,11 @@ class filter_embedrc extends moodle_text_filter {
             $search = '/<a\s[^>]*href="(.*?)"(.*?)>(.*?)<\/a>/';
             $filtered = preg_replace_callback($search, function ($match) {
                 $instance = oembed::get_instance();
-                return $instance->html_output($match[1]);
+                $result = $instance->html_output($match[1]);
+                if (empty($result)) {
+                    $result = $match[0];
+                }
+                return $result
 
             }, $filtered);
         }

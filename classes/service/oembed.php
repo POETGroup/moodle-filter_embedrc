@@ -325,7 +325,7 @@ class oembed {
                     $url = $site['endpoint'].'?url='.$text.$url2;
                     $jsonret = $this->oembed_curlcall($url);
                     if (!$jsonret) {
-                        return false;
+                        return '';
                     }
                     return $this->oembed_gethtml($jsonret);
                 }
