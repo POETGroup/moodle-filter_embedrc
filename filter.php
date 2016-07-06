@@ -70,6 +70,7 @@ class filter_embedrc extends moodle_text_filter {
                 $instance = oembed::get_instance();
                 $result = $instance->html_output($match[1]);
                 if (empty($result)) {
+                    // This anchor does not contain an oembed url, return the original anchor html.
                     $result = $match[0];
                 }
                 return $result;

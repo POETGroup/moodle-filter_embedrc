@@ -52,11 +52,8 @@ class testable_oembed extends oembed {
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class filter_embedrc_service_oembed_testcase extends advanced_testcase {
-    public function test_instance_not_logged_in() {
-        $this->setExpectedException('moodle_exception', get_string('error:notloggedin', 'filter_embedrc'));
-        testable_oembed::get_instance();
-    }
-    public function test_instance_logged_in() {
+
+    public function test_instance() {
         $this->resetAfterTest(true);
         $this->setAdminUser();
         $oembed = testable_oembed::get_instance();
