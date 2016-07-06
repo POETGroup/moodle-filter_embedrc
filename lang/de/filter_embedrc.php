@@ -25,4 +25,17 @@
  */
 
 $string['filtername'] = 'Embed Remote Content Filter';
+$string['cachelifespan_disabled'] = 'Cache Lebensdauer deaktiviert';
+$string['cachelifespan'] = 'Cache Lebensdauer';
+$string['cachelifespan_desc'] = 'Zeitabstand nach dem die Providerliste aktualisiert wird.';
+$string['cachelifespan_daily'] = '1 Tag';
+$string['cachelifespan_weekly'] = '1 Woche';
+$string['atag'] = 'Filtere &lt; a &gt; tags';
+$string['divtag'] = 'Filtere &lt; div &gt; tags';
+$string['targettag'] = 'Ziel tag';
+$string['targettag_desc'] = 'Welche Art von tag soll gefiltert werden? Links oder divs mit der oembed Klasse.';
+$string['providers_restrict'] = 'Providerbeschränkung';
+$string['providers_restrict_desc'] = 'Beschränke Provider mit einer List zugelassener Provider';
+$string['providers_allowed'] = 'Zugelassene Provider.';
+$string['providers_allowed_desc'] = 'Die Provider die vor diese Moodleinstallation verfügbar sind.';
 $string['connection_error'] = 'Fehler beim Zugriff auf die integrierten Medien. Versuchen Sie, die Seite zu aktualisieren.';

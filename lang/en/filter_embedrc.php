@@ -38,4 +38,5 @@ $string['providers_restrict'] = 'Restrict providers';
 $string['providers_restrict_desc'] = 'Restrict providers to a list of allowed providers';
 $string['providers_allowed'] = 'Providers allowed.';
 $string['providers_allowed_desc'] = 'Providers whitelisted to be used with this plugin';
+$string['connection_error'] = 'Error connecting to external provider, please try reloading the page.';
 
