@@ -50,7 +50,6 @@ class oembed {
      * Constructor - protected singeton.
      */
     protected function __construct() {
-        $this->security();
         $this->set_providers();
         $this->sites = $this->get_sites();
     }
@@ -67,16 +66,6 @@ class oembed {
             return $instance;
         } else {
             return new oembed();
-        }
-    }
-
-    /**
-     * Security checks
-     * @throws \moodle_exception
-     */
-    protected function security() {
-        if (!isloggedin()) {
-            throw new \moodle_exception('error:notloggedin', 'filter_embedrc', '');
         }
     }
 
