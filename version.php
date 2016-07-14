@@ -30,4 +30,4 @@ $plugin->version   = 2016070500;
 $plugin->requires  = 2015111600;
 $plugin->component = 'filter_embedrc';
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = '3.0.0.0';
+$plugin->release   = '3.0.0.1';
