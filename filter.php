@@ -30,10 +30,11 @@ use filter_embedrc\service\oembed;
 
 require_once($CFG->libdir.'/filelib.php');
 /**
- * This text filter allows the user to embed content from many external contents providers.
- * The filter is using oEmbed for grabbing the external content.
+ * Main filter class for embedded remote content.
  *
  * @package    filter_embedrc
+ * @copyright Erich M. Wappis / Guy Thomas 2016
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class filter_embedrc extends moodle_text_filter {
 
