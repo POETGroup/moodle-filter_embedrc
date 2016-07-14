@@ -20,8 +20,6 @@
  * @package   filter_embedrc
  * @copyright Erich M. Wappis / Guy Thomas 2016
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * code based on the following filter
- * oEmbed filter ( Mike Churchward, James McQuillan, Vinayak (Vin) Bhalerao, Josh Gavant and Rob Dolin)
  */
 namespace filter_embedrc\service;
 
@@ -29,6 +27,13 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir.'/filelib.php');
 
+/**
+ * Class oembed
+ * @package filter_embedrc\service
+ * @copyright Erich M. Wappis / Guy Thomas 2016
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * Singleton class providing function for filtering embedded content links in text.
+ */
 class oembed {
 
     /**
@@ -279,13 +284,6 @@ class oembed {
     }
 
     /**
-     * @return array
-     */
-    public function get_warnings() {
-        return $this->warnings;
-    }
-
-    /**
      * Get oembed html.
      *
      * @param array $jsonarr
@@ -333,6 +331,12 @@ class oembed {
         return '';
     }
 
+    /**
+     * Magic method for getting properties.
+     * @param string $name
+     * @return mixed
+     * @throws \coding_exception
+     */
     public function __get($name) {
         $allowed = ['providers', 'warnings', 'sites'];
         if (in_array($name, $allowed)) {

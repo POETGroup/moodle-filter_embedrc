@@ -14,22 +14,45 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * Filter for component 'filter_embedrc'
+ *
+ * @package   filter_embedrc
+ * @copyright Erich M. Wappis / Guy Thomas 2016
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 use filter_embedrc\service\oembed;
 
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * Class testable_oembed.
+ *
+ * @package   filter_embedrc
+ * @copyright Erich M. Wappis / Guy Thomas 2016
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class testable_oembed extends oembed {
-    public function get_providers() {
-        return $this->providers;
-    }
+
+    /**
+     * Get cached providers.
+     * @param bool $ignorelifespan
+     * @return array|mixed
+     */
     public function protected_get_cached_providers($ignorelifespan = false) {
-        return $this->get_cached_providers($ignorelifespan = false);
+        return $this->get_cached_providers($ignorelifespan);
     }
+
+    /**
+     * Get sites.
+     * @return array
+     */
     public function protected_get_sites() {
         return $this->get_sites();
     }
     /**
-     * Singleton
+     * Singleton.
      *
      * @return oembed
      */
@@ -53,12 +76,20 @@ class testable_oembed extends oembed {
  */
 class filter_embedrc_service_oembed_testcase extends advanced_testcase {
 
+    /**
+     * Test instance.
+     */
     public function test_instance() {
         $this->resetAfterTest(true);
         $this->setAdminUser();
         $oembed = testable_oembed::get_instance();
         $this->assertNotEmpty($oembed);
     }
+
+    /**
+     * Make sure providers array is correct.
+     * @param array $providers
+     */
     public function assert_providers_ok($providers) {
         $this->assertNotEmpty($providers);
         $provider = reset($providers);
@@ -66,6 +97,10 @@ class filter_embedrc_service_oembed_testcase extends advanced_testcase {
         $this->assertNotEmpty($provider['provider_url']);
         $this->assertNotEmpty($provider['endpoints']);
     }
+
+    /**
+     * Test sites.
+     */
     public function test_sites() {
         $this->resetAfterTest(true);
         $this->setAdminUser();
@@ -77,13 +112,21 @@ class filter_embedrc_service_oembed_testcase extends advanced_testcase {
         $this->assertNotEmpty($site['regex']);
         $this->assertNotEmpty($site['endpoint']);
     }
+
+    /**
+     * Test providers.
+     */
     public function test_providers() {
         $this->resetAfterTest(true);
         $this->setAdminUser();
         $oembed = testable_oembed::get_instance();
-        $providers = $oembed->get_providers();
+        $providers = $oembed->providers;
         $this->assert_providers_ok($providers);
     }
+
+    /**
+     * Test cached providers.
+     */
     public function test_get_cached_providers() {
         $this->resetAfterTest(true);
         $this->setAdminUser();
@@ -91,6 +134,10 @@ class filter_embedrc_service_oembed_testcase extends advanced_testcase {
         $providers = $oembed->protected_get_cached_providers();
         $this->assert_providers_ok($providers);
     }
+
+    /**
+     * Test html.
+     */
     public function test_html() {
         $this->resetAfterTest(true);
         $this->setAdminUser();
